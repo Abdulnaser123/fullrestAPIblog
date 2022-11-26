@@ -1,16 +1,8 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import CommonPosts from "../components/CommonPosts/CommonPosts";
+
 const Mostcommonposts = () => {
-  useEffect(() => {
-    axios
-      .get(
-        "https://raw.githubusercontent.com/MohitSojitra/react-blog-website/master/src/utils/db.json"
-      )
-      .then((res) => {
-        console.log(res.data);
-      });
-  });
-  return <div>mostcommonposts</div>;
+  return <CommonPosts />;
 };
 
 export default Mostcommonposts;
