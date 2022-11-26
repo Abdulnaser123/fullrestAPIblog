@@ -1,0 +1,30 @@
+.layout {
+  background-color: #f6f6f6;
+}
+
+.Container {
+  padding: 0px 100px 0px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.lines {
+  background-color: white;
+  margin: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid black;
+}
+
+.title {
+  width: 60%;
+}
+
+.date {
+  width: 20%;
+}
+.comments {
+  width: 20%;
+  color: rgb(145, 0, 0);
+}
