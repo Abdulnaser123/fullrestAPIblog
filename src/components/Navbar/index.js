@@ -15,10 +15,10 @@ const Navbar = () => {
         JSON
       </Link>
       <ul className={styles.NavbarItems}>
-        {NavData.map((item) => {
+        {NavData.map((item,index) => {
           return (
             <Link to={item.path} className={styles.NavbarItem}>
-              <li>{item.title}</li>
+              <li key={index}>{item.title}</li>
             </Link>
           );
         })}
