@@ -17,18 +17,22 @@
   justify-self: start;
   margin-left: 5%;
   font-size: 20px;
-  width: max-content;
+  width: 50%;
+  text-decoration: none;
 }
 .NavbarItems {
-  list-style: none;
   display: flex;
-  justify-content: end;
-  margin-left: 50%;
+  justify-content: space-around;
+  align-items: flex-end;
   width: 50%;
-  justify-content: space-between;
-  margin-right: 7%;
+  padding-right: 3%;
+  list-style: none;
+  font-size: 18px;
+
 }
 .NavbarItem {
   color: white;
   margin-right: 2%;
+  text-decoration: none;
+
 }

@@ -42,7 +42,7 @@ const CardsContainer = () => {
     }
   };
   return (
-    <>
+    <div className={styles.Container} >
       <div className={styles.CardsContainer}>
         {AuthorsList.map((item) => {
           return (
@@ -55,7 +55,7 @@ const CardsContainer = () => {
       <button className={styles.ShowMore} onClick={LoadingMoreProducts} id={fullFlag? styles.hidden:""}>
         Show more authors
       </button>
-    </>
+    </div>
   );
 };
 
