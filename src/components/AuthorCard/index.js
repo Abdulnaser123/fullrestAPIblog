@@ -1,16 +1,16 @@
-import React from "react";
-import styles from "./styles.module.css";
+import React from 'react';
+import styles from './styles.module.css';
 
-const AuthorCard = ({ firstName, lastName }) => {
+const AuthorCard = ({firstName, lastName}) => {
   return (
     <div className={styles.AuthorCard}>
       <img
         className={styles.AuthorImage}
-        src={`https://joeschmoe.io/api/v1/${firstName + " " + lastName}`}
-        alt="Author image"
+        src={`https://joeschmoe.io/api/v1/${firstName + ' ' + lastName}`}
+        alt=""
       />
       <div className={styles.AuthorName}>
-        {firstName} {lastName}{" "}
+        {firstName} {lastName}{' '}
       </div>
       <button className={styles.ProfileButton}>Click to view Profile</button>
     </div>
