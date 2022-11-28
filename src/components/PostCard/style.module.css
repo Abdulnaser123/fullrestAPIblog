@@ -1,0 +1,22 @@
+.mainContainer{
+    border: 1px solid #dcdcdc;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 5%;
+    width: 80%;
+    justify-content: space-around;
+    background-color: white;
+}
+.postDescription{
+    color:#007aff;
+    /* font-weight: 500; */
+}
+.date{
+    color: #399ab7;
+    font-weight: 500;
+}
+.likes{
+    color: #c14c5a;
+    font-weight: 500;
+}

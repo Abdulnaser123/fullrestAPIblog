@@ -1,0 +1,25 @@
+.mainContainer {
+  background-color: #f6f6f6;
+}
+.authorCardContainer {
+  display: flex;
+  justify-content: center;
+}
+.title {
+  text-align: left;
+  margin-left: 11%;
+}
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2%;
+}
+.postCardsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 20%; */
+}
