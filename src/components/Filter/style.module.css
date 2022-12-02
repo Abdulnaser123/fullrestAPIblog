@@ -8,7 +8,7 @@
   /* background-color: #007aff; */
   /* border-radius: 8px; */
   /* height: 50px; */
-  width: fit-content;
+  width: 100%;
 }
 .filterItem {
   width: 250px;
@@ -22,6 +22,10 @@
   /* border-radius: 8px; */
 }
 .firstFilterButton:hover,.filterItem:hover,.lastFilterButton:hover {
+  background-color: #0062cd;
+}
+
+.active{
   background-color: #0062cd;
 }
 

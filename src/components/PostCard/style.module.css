@@ -5,7 +5,8 @@
     align-items: center;
     gap: 5%;
     width: 80%;
-    justify-content: space-around;
+    /* justify-content: space-around;*/
+    justify-content: space-evenly; 
     background-color: white;
 }
 .postDescription{

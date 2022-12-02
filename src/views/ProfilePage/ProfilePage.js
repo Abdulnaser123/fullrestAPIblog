@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import UserCard from "../../components/UserCard";
 import styles from "./style.module.css";
 import Filter from "../../components/Filter";
 import PostCard from "../../components/PostCard";
+import PostsList from "../../components/PostsList";
 
 const ProfilePage = () => {
   const [data, setData] = useState([]);
   const [isFetch, setIsFetch] = useState([]);
-  const [posts, setPosts] = useState([]); 
-  const [author, setAuthor] = useState({}); 
-  const [activeButton, setActiveButton] = useState(""); 
+  const [activeButton, setActiveButton] = useState("");
+
+  const [posts, setPosts] = useState([]);
+  const [author, setAuthor] = useState({});
 
   const getData = async () => {
     setIsFetch(true);
@@ -20,6 +22,8 @@ const ProfilePage = () => {
     // console.log(response, "res");
 
     setData(response.data);
+    setAuthor(response.data.authors);
+    setPosts(response.data.posts);
     setIsFetch(false);
   };
 
@@ -27,35 +31,109 @@ const ProfilePage = () => {
     getData();
   }, []);
 
+  // Sorting By Assending Date
+  const ascDate = useCallback(() => {
+    setActiveButton("ascDate");
+    let data = posts;
+
+    // bubble sort for shorting time complexity = O(n * n)
+    for (let i = 0; i < data.length; i++) {
+      for (let j = 0; j < data.length - i - 1; j++) {
+        if (data[j].datePublished > data[j + 1].datePublished) {
+          let temp = data[j];
+          data[j] = data[j + 1];
+          data[j + 1] = temp;
+        }
+      }
+    }
+
+    setPosts([...data]);
+  }, [posts]);
+  // Sorting By decending Date
+  const dscDate = useCallback(() => {
+    setActiveButton("dscDate");
+    let data = posts;
+
+    // bubble sort for shorting time complexity = O(n * n)
+
+    for (let i = 0; i < data.length; i++) {
+      for (let j = 0; j < data.length - i - 1; j++) {
+        if (data[j].datePublished > data[j + 1].datePublished) {
+          let temp = data[j];
+          data[j] = data[j + 1];
+          data[j + 1] = temp;
+        }
+      }
+    }
+    setPosts([...data.reverse()]);
+  }, [posts]);
+
+  // Sorting By Assending Like
+  const ascLike = useCallback(() => {
+    setActiveButton("ascLike");
+    let data = posts;
+
+    // bubble sort for shorting time complexity = O(n * n)
+
+    for (let i = 0; i < data.length; i++) {
+      for (let j = 0; j < data.length - i - 1; j++) {
+        if (data[j].numLikes > data[j + 1].numLikes) {
+          let temp = data[j];
+          data[j] = data[j + 1];
+          data[j + 1] = temp;
+        }
+      }
+    }
+
+    setPosts([...data]);
+  }, [posts]);
+
+  // Sorting By decending Like
+  const dscLike = useCallback(() => {
+    setActiveButton("dscLike");
+    let data = posts;
+
+    // bubble sort for shorting time complexity = O(n * n)
+
+    for (let i = 0; i < data.length; i++) {
+      for (let j = 0; j < data.length - i - 1; j++) {
+        if (data[j].numLikes > data[j + 1].numLikes) {
+          let temp = data[j];
+          data[j] = data[j + 1];
+          data[j + 1] = temp;
+        }
+      }
+    }
+
+    setPosts([...data.reverse()]);
+  }, [posts]);
+
   if (isFetch) {
     return "Data is Loading ...";
   }
-  const { authors, posts } = data;
-  console.log(posts[0]);
+
+  console.log("posts", posts.slice(0, 2));
+  console.log("author", author.slice(0, 2));
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.authorCardContainer}>
-        <UserCard
-          firstName={authors[0].firstName}
-          lastName={authors[0].lastName}
-          phone={authors[0].phone}
-          numPosts={authors[0].numPosts}
-          numLikes={authors[0].numLikes}
-        />
+        <UserCard author={author} />
       </div>
       <h1 className={styles.title}>Posts</h1>
       <div className={styles.filterContainer}>
-        <Filter />
-      </div>
-      <div className={styles.postCardsContainer}>
-        <PostCard
-          title={posts[0].title}
-          date={posts[0].datePublished}
-          numLikes={posts[0].numLikes}
+        <Filter
+          activeButton={activeButton}
+          ascDate={ascDate}
+          dscDate={dscDate}
+          ascLike={ascLike}
+          dscLike={dscLike}
         />
+
+        <PostsList authorId={author.id} posts={posts} />
       </div>
     </div>
   );
-};;
+};
 
 export default ProfilePage;
