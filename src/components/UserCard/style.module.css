@@ -1,6 +1,7 @@
 .CardContainer{
     background-color: #313131;
     width: 350px;
+    
 
 }
 .profileImage{
@@ -9,6 +10,7 @@
 }
 .authorName,.mobile,.posts,.likes{
     color: white;
+    text-align: center;
 }
 
 .posts,.likes{

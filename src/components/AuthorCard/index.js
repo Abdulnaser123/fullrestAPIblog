@@ -15,7 +15,7 @@ const AuthorCard = ({ firstName, lastName, authorId ,numLikes,numPosts}) => {
       </div>
       {/* <button className={styles.ProfileButton}>Click to view Profile</button> */}
       <Link
-        className="btn btn-primary text-white font-weight-bold"
+        className={styles.ProfileButton}
         to={`/authorProfile/${authorId}`}
         id={authorId}
         firstName={firstName}

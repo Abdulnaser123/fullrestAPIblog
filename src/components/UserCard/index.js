@@ -5,7 +5,6 @@ import styles from "./style.module.css";
 
 
 const UserCard = ({
-  author,
   firstName,
   lastName,
   phone,
@@ -19,16 +18,16 @@ const UserCard = ({
       <img
         className={styles.profileImage}
         src={`https://joeschmoe.io/api/v1/${
-          author.firstName + " " + author.lastName
+          firstName + " " + lastName
         }`}
         alt=""
       />
       <h1 className={styles.authorName}>
-        {author.firstName + " " + author.lastName}
+        {firstName + " " + lastName}
       </h1>
-      <p className={styles.mobile}>mobile : {author.phone}</p>
-      <p className={styles.posts}>posts : {author.numPosts}</p>
-      <p className={styles.likes}>likes : {author.numLikes}</p>
+      <p className={styles.mobile}>mobile : {phone}</p>
+      <p className={styles.posts}>posts : {numPosts}</p>
+      <p className={styles.likes}>likes : {numLikes}</p>
     </div>
     // </div>
   );

@@ -1,10 +1,13 @@
+.cardsContainer{
+    width: 100%;
+}
 .mainContainer{
     border: 1px solid #dcdcdc;
     display: flex;
     /* justify-content: center; */
     align-items: center;
     gap: 5%;
-    width: 80%;
+    width: 100%;
     /* justify-content: space-around;*/
     justify-content: space-evenly; 
     background-color: white;

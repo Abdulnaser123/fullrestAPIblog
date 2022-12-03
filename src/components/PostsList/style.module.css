@@ -1,5 +1,3 @@
-/* .postCardsContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-} */
+.postCardsContainer{
+    width: 80%;
+}

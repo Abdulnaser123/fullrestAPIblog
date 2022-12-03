@@ -34,4 +34,9 @@
   line-height: 17px;
   cursor: pointer;
   border-color: rgb(78, 78, 160);
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }

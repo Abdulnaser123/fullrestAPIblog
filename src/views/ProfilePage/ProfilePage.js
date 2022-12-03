@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import UserCard from "../../components/UserCard";
 import styles from "./style.module.css";
@@ -108,17 +109,21 @@ const ProfilePage = () => {
     setPosts([...data.reverse()]);
   }, [posts]);
 
+  const location = useLocation();
+ const authorId=location.pathname.split("/")[2];
+
   if (isFetch) {
     return "Data is Loading ...";
   }
 
   console.log("posts", posts.slice(0, 2));
   console.log("author", author.slice(0, 2));
-
+  // console.log("iddddd",author.id);
+const item = author.find((i) => i.id === authorId);
   return (
     <div className={styles.mainContainer}>
       <div className={styles.authorCardContainer}>
-        <UserCard author={author} />
+        <UserCard {...item} />
       </div>
       <h1 className={styles.title}>Posts</h1>
       <div className={styles.filterContainer}>
@@ -130,7 +135,7 @@ const ProfilePage = () => {
           dscLike={dscLike}
         />
 
-        <PostsList authorId={author.id} posts={posts} />
+        <PostsList authorId={item.id} posts={posts} />
       </div>
     </div>
   );

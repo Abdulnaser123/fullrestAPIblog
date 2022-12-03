@@ -14,11 +14,15 @@ const PostCard = ({
   // setAuthorName(firstName + ' ' + lastName);
 
   return (
-    <div className={styles.mainContainer}>
-      <h3>{title}</h3>
-      <p className={styles.postDescription}>{description}</p>
-      <p className={styles.date}>{new Date(date).toLocaleDateString()}</p>
-      <p className={styles.likes}>{ numLikes } { ' Likes'}</p>
+    <div className={styles.cardsContainer}>
+      <div className={styles.mainContainer}>
+        <h3>{title}</h3>
+        <p className={styles.postDescription}>{description}</p>
+        <p className={styles.date}>{new Date(date).toLocaleDateString()}</p>
+        <p className={styles.likes}>
+          {numLikes} {" Likes"}
+        </p>
+      </div>
     </div>
   );
 };
