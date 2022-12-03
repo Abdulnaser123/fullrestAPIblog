@@ -13,7 +13,8 @@ function Likes() {
       );
       // console.log(response.data);
       let newArray = response.data.posts.slice(0, 10);
-      setData(newArray);
+
+      setData(newArray.sort(compareLikes));
     };
     likes();
   }, []);
@@ -32,9 +33,11 @@ function Likes() {
         <Link to={`/Profile/${item.id}`}>
           <div className={styles.container}>
             <div className={styles.likes}>
-              <div>{item.title}</div>
-              <div>{new Date(item.datePublished).toLocaleDateString()}</div>
-              <div>Likes {item.numLikes}</div>
+              <a href="#-">{item.title}</a>
+              <a href="#-">
+                {new Date(item.datePublished).toLocaleDateString()}
+              </a>
+              <a href="#-">Likes {item.numLikes}</a>
             </div>
             {/* <div className={styles.comments}>
             <Comments details={allData} id={item.id} />

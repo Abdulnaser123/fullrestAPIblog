@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import "./CommonPosts.css";
-import axios from "axios";
+import React, {useEffect, useState} from 'react';
+import './CommonPosts.css';
+import axios from 'axios';
 
 const CommonPosts = () => {
   const [posts, setPosts] = useState([]);
@@ -8,22 +8,17 @@ const CommonPosts = () => {
   useEffect(() => {
     const axiosPosts = async () => {
       const res = await axios.get(
-        "https://raw.githubusercontent.com/MohitSojitra/react-blog-website/master/src/utils/db.json"
+        'https://raw.githubusercontent.com/MohitSojitra/react-blog-website/master/src/utils/db.json'
       );
-      setPosts(res.data.posts.slice(0, 20));
+      const newArray = res.data.posts.slice(0, 10);
+      setPosts(newArray.sort(compareLikes));
     };
+
     axiosPosts();
-    // axios
-    //   .get(
-    //     "https://raw.githubusercontent.com/MohitSojitra/react-blog-website/master/src/utils/db.json"
-    //   )
-    //   .then((res) => {
-    //     const result = res.data.posts.slice(0, 20);
-    //     console.log(result);
-    //     setPosts([result]);
-    //   })
-    //   .catch((err) => console.log("there is an error", err));
   }, []);
+  function compareLikes(a, b) {
+    return b.numComments - a.numComments;
+  }
   console.log(posts);
 
   return (

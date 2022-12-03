@@ -45,7 +45,7 @@ function Comments() {
                           <div className={styles.CommentSection}>
                             {data.authors.map((author) => {
                               return author.id == comment.authorId ? (
-                                <img
+                                <img alt=""
                                   className={styles.CommentImage}
                                   src={`https://joeschmoe.io/api/v1/${
                                     author.firstName + " " + author.lastName

@@ -1,11 +1,21 @@
 .likes {
   display: flex;
-  justify-content: space-around;
-  background-color: antiquewhite;
+  justify-content: space-between;
+  text-align: center;
+  background-color: rgb(224, 235, 235);
   margin: 20px;
   padding: 20px;
   font-size: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.likes div {
+.likes a {
   width: 30%;
+
+  color: rgb(77, 75, 75);
+}
+.likes a:link {
+  text-decoration: none;
+}
+.likes a:hover {
+  color: black;
 }
