@@ -25,7 +25,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route index element={<HomePage />} />
-        <Route path="profile/:firstName" element={<ProfilePage />} />
+        <Route path="authorProfile/:authorId" element={<ProfilePage />} />
         <Route path="comments" element={<Mostcommonposts />} />
         <Route path="likes" element={<Likes />} />
         <Route path="profile/:postId" element={<Profile />} />

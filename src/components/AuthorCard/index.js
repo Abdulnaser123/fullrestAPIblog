@@ -11,12 +11,12 @@ const AuthorCard = ({ firstName, lastName, authorId ,numLikes,numPosts}) => {
         alt=""
       />
       <div className={styles.AuthorName}>
-        {firstName} {lastName}{" "}
+        {firstName} {lastName}
       </div>
       {/* <button className={styles.ProfileButton}>Click to view Profile</button> */}
       <Link
         className="btn btn-primary text-white font-weight-bold"
-        to={`/profile/${firstName}`}
+        to={`/authorProfile/${authorId}`}
         id={authorId}
         firstName={firstName}
         lastName={lastName}
