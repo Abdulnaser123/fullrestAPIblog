@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import './CommonPosts.css';
+import styles from './CommonPosts.module.css';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 const CommonPosts = () => {
@@ -22,19 +23,37 @@ const CommonPosts = () => {
   console.log(posts);
 
   return (
-    <div className="layout">
-      <div className="Container">
-        {posts.map((post) => {
-          return (
-            <div key={post.id} className="lines">
-              <h3 className="title">{post.title}</h3>
-              <p className="date">{post.datePublished}</p>
-              <p className="comments">{post.numComments} comments</p>
+    <>
+      {posts.map((item) => (
+        <Link to={`/Profile/${item.id}`}>
+          <div className={styles.container}>
+            <div className={styles.likes}>
+              <a href="#-">{item.title}</a>
+              <a href="#-">
+                {new Date(item.datePublished).toLocaleDateString()}
+              </a>
+              <a href="#-">Comments {item.numComments}</a>
             </div>
-          );
-        })}
-      </div>
-    </div>
+            {/* <div className={styles.comments}>
+            <Comments details={allData} id={item.id} />
+          </div> */}
+          </div>
+        </Link>
+      ))}
+    </>
+    // <div className="layout">
+    //   <div className="Container">
+    //     {posts.map((post) => {
+    //       return (
+    //         <div key={post.id} className="lines">
+    //           <h3 className="title">{post.title}</h3>
+    //           <p className="date">{post.datePublished}</p>
+    //           <p className="comments">{post.numComments} comments</p>
+    //         </div>
+    //       );
+    //     })}
+    //   </div>
+    // </div>
   );
 };
 
