@@ -1,18 +1,30 @@
 import React from 'react';
 import styles from './styles.module.css';
+import { Link } from 'react-router-dom';
 
-const AuthorCard = ({firstName, lastName}) => {
+const AuthorCard = ({ firstName, lastName, authorId ,numLikes,numPosts}) => {
   return (
     <div className={styles.AuthorCard}>
       <img
         className={styles.AuthorImage}
-        src={`https://joeschmoe.io/api/v1/${firstName + ' ' + lastName}`}
+        src={`https://joeschmoe.io/api/v1/${firstName + " " + lastName}`}
         alt=""
       />
       <div className={styles.AuthorName}>
-        {firstName} {lastName}{' '}
+        {firstName} {lastName}
       </div>
-      <button className={styles.ProfileButton}>Click to view Profile</button>
+      {/* <button className={styles.ProfileButton}>Click to view Profile</button> */}
+      <Link
+        className={styles.ProfileButton}
+        to={`/authorProfile/${authorId}`}
+        id={authorId}
+        firstName={firstName}
+        lastName={lastName}
+        numLikes={numLikes}
+        numPosts={numPosts}
+      >
+        Click to view Profile
+      </Link>
     </div>
   );
 };

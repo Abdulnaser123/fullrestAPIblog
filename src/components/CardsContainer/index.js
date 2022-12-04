@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import styles from './styles.module.css';
-import axios from 'axios';
-import AuthorCard from '../AuthorCard';
+import React, { useEffect, useState } from "react";
+import styles from "./styles.module.css";
+import axios from "axios";
+import AuthorCard from "../AuthorCard";
 const CardsContainer = () => {
   const [Authors, setAuthors] = useState([]);
   const [AuthorsList, setAuthorsList] = useState([]);
@@ -13,7 +13,7 @@ const CardsContainer = () => {
     let ignore = false;
     axios
       .get(
-        'https://raw.githubusercontent.com/MohitSojitra/react-blog-website/master/src/utils/db.json'
+        "https://raw.githubusercontent.com/MohitSojitra/react-blog-website/master/src/utils/db.json"
       )
       .then((res) => {
         if (!ignore) {
@@ -41,13 +41,21 @@ const CardsContainer = () => {
       setFullFlag(true);
     }
   };
+  console.log(AuthorsList.authorId);
   return (
     <div className={styles.Container}>
       <div className={styles.CardsContainer}>
         {AuthorsList.map((item) => {
+          console.log(item.id);
           return (
             <>
-              <AuthorCard firstName={item.firstName} lastName={item.lastName} />
+              <AuthorCard
+                firstName={item.firstName}
+                lastName={item.lastName}
+                authorId={item.id}
+                numLikes={item.numLikes}
+                numPosts={item.numPosts}
+              />
             </>
           );
         })}
@@ -55,7 +63,7 @@ const CardsContainer = () => {
       <button
         className={styles.ShowMore}
         onClick={LoadingMoreProducts}
-        id={fullFlag ? styles.hidden : ''}
+        id={fullFlag ? styles.hidden : ""}
       >
         Show more authors
       </button>
